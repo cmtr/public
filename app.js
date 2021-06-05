@@ -7,12 +7,14 @@ const ENV = 'Dev';
 const NAME = 'cmtr-public';
 const PORT = 3000;
 
-const appBuilder = new AppBuilder();
 
+const appBuilder = new AppBuilder();
 const app = appBuilder
 	.addRoute('/', indexRoute)
 	.build();
 
 
+
+
 const server = new Server(app, NAME, PORT);
-server.start;
+server.start();

@@ -33,6 +33,7 @@ const ExpressServer = function(app, name='app', port=3000) {
 
 // Listen on provided port, on all network interfaces.
 ExpressServer.prototype.start = function() {
+	console.log('start server');
 	this.server.listen(this.port);
 };
 
