@@ -1,0 +1,106 @@
+{
+	"portfolio": {
+		"title": "Portfolio",
+		"paragraph": "Check our Portfolio",
+		"portfolio": [
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-1.jpg",
+					"alt": ""
+				},
+				"title": "App 1",
+				"paragraph": "App",
+				"href": "/portfolio/temp",
+				"filters": [ "app" ]
+			},
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-2.jpg",
+					"alt": ""
+				},
+				"title": "Web 3",
+				"paragraph": "Web",
+				"href": "/portfolio/temp",
+				"filters": [ "Web" ]
+			},
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-3.jpg",
+					"alt": ""
+				},
+				"title": "App 2",
+				"paragraph": "App",
+				"href": "/portfolio/temp",
+				"filters": [ "app" ]
+			},
+
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-4.jpg",
+					"alt": ""
+				},
+				"title": "Card 2",
+				"paragraph": "Card",
+				"href": "/portfolio/temp",
+				"filters": [ "card" ]
+			},
+
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-5.jpg",
+					"alt": ""
+				},
+				"title": "Web 2",
+				"paragraph": "Web",
+				"href": "/portfolio/temp",
+				"filters": [ "web" ]
+			},
+
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-6.jpg",
+					"alt": ""
+				},
+				"title": "App 3",
+				"paragraph": "App",
+				"href": "/portfolio/temp",
+				"filters": [ "app" ]
+			},
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-7.jpg",
+					"alt": ""
+				},
+				"title": "Card 1",
+				"paragraph": "Card",
+				"href": "/portfolio/temp",
+				"filters": [ "card" ]
+			},
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-8.jpg",
+					"alt": ""
+				},
+				"title": "Card 3",
+				"paragraph": "Card",
+				"href": "/portfolio/temp",
+				"filters": [ "card" ]
+			},
+			{
+				"image": {
+					"src": "/assets/img/portfolio/portfolio-9.jpg",
+					"alt": ""
+				},
+				"title": "Web 3",
+				"paragraph": "web",
+				"href": "/portfolio/temp",
+				"filters": [ "web" ]
+			}
+		],
+		"filterDisplayNameMap": {
+			"app": "App",
+			"web": "Web",
+			"card": "Card"
+		}
+	}	
+}

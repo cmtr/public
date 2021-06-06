@@ -7,6 +7,12 @@ const logger = require('morgan');
 
 const ExpressAppBuilder = function() {
 	this.routes = [];
+	this.middleware = [];
+};
+
+ExpressAppBuilder.prototype.addMiddleware = function(...args) {
+	this.middleware.push(args);
+	return this;
 };
 
 ExpressAppBuilder.prototype.addRoute = function(path, router) {
@@ -26,6 +32,9 @@ ExpressAppBuilder.prototype.build = function() {
 	app.use(express.urlencoded({ extended: false }));
 	app.use(cookieParser());
 	app.use(express.static(path.join(__dirname, '../public')));
+
+	this.middleware
+		.forEach((middleware) => app.use.apply(app, middleware));
 
 	this.routes
 		.forEach(route => app.use.apply(app, route));

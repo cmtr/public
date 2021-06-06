@@ -1,0 +1,146 @@
+{
+	"navbar": {
+		"logo": {
+			"title": "CMTr.io",
+			"href": "/"
+		},
+		"navbar": [
+			{
+				"type": "link",
+				"key": "home",
+				"title": "Home",
+				"href": "/"
+			},
+			{
+				"type": "link",
+				"key": "about",
+				"title": "About",
+				"href": "/about"
+			},
+			{
+				"type": "link",
+				"key": "services",
+				"title": "Services",
+				"href": "/services"
+			},
+			{
+				"type": "link",
+				"key": "portfolio",
+				"title": "Portfolio",
+				"href": "/portfolio"
+			},
+			{
+				"type": "link",
+				"key": "team",
+				"title": "Team",
+				"href": "/about/team"
+			},
+			{
+				"type": "dropdown",
+				"key": "dropdown",
+				"title": "Drop Down",
+				"items": [
+					{
+						"type": "link",
+						"title": "Drop Down 1",
+						"href": "#"
+					},
+					{
+						"type": "dropdown",
+						"title": "Deep Drop Down",
+						"items": [
+							{
+								"type": "link",
+								"title": "Deep Drop Down 1",
+								"href": "#"
+							},
+							{
+								"type": "link",
+								"title": "Deep Drop Down 2",
+								"href": "#"
+							}
+						]
+					},
+					{
+						"type": "link",
+						"title": "Drop Down 2",
+						"href": "#"
+					}
+				]
+			},
+			{
+				"type": "scrollto",
+				"key": "contact",
+				"title": "Contact",
+				"href": "#contact"
+			},
+			{
+				"type": "scrollto",
+				"key": "getstarted",
+				"title": "Get Started",
+				"href": "#contact",
+				"class": "getstarted"
+			}
+		]
+	},
+	"usefullLinks": {
+		"title": "Usefull Links",
+		"items": [
+			{
+				"key": "home",
+				"title": "Home",
+				"href": "/"
+			},
+			{
+				"key": "about",
+				"title": "About Us",
+				"href": "/about"
+			},
+			{
+				"key": "services",
+				"title": "Services",
+				"href": "/services"
+			},
+			{
+				"key": "portfolio",
+				"title": "Portfolio",
+				"href": "/portfolio"
+			},
+			{
+				"key": "team",
+				"title": "Our Team",
+				"href": "/about/team"
+			}
+		]
+	},
+	"ourServices": {
+		"title": "Our Services",
+		"items": [
+			{
+				"key": "pm",
+				"title": "Project Management",
+				"href": "#"
+			},
+			{
+				"key": "productmanagement",
+				"title": "Product Management",
+				"href": "#"
+			},
+			{
+				"key": "marketing",
+				"title": "Market Analysis & Research",
+				"href": "#"
+			},
+			{
+				"key": "analysis",
+				"title": "User Analysis & Research",
+				"href": "#"
+			},
+			{
+				"key": "coaching",
+				"title": "Facilitation & Coaching",
+				"href": "#"
+			}
+		]
+	}
+}

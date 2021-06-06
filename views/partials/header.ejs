@@ -2,10 +2,58 @@
 <header id="header" class="fixed-top ">
   <div class="container d-flex align-items-center justify-content-between">
 
-    <h1 class="logo"><a href="index.html"><%= header.logo %></a></h1>
+    <h1 class="logo"><a href="<%= navbar.logo.href %>"><%= navbar.logo.title %></a></h1>
     <!-- Uncomment below if you prefer to use an image logo -->
     <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
+    <%
+      const getNavlinkClass = (item) => {
+        const customClass = item.class || "";
+        let str = "nav-link " + customClass;
+        if (item.key === page) {
+          str += ' active';
+        }
+        if (item.type === 'scrollto') {
+          str += ' scrollto';
+        }
+        return str;
+      }
+    %>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <% navbar.navbar.forEach((item) => { %>
+          <% if (item.type == 'link' || item.type == 'scrollto') { %>
+            <li>
+              <a class="<%= getNavlinkClass(item) %>" href="<%= item.href %>"><%= item.title %></a>
+            </li>  
+          <% } else if (item.type === "dropdown") { %>
+            <li class="dropdown <%= item.key === page ? "active" : "" %>">
+              <a href="#"><span><%= item.title %></span><i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <% item.items.forEach((listItem) => { %>
+                  <% if (listItem.type === "link") { %>
+                    <li><a href="<%= listItem.href %>"><%= listItem.title %></a></li>
+                  <% } else if (listItem.type === "dropdown") { %>
+                    <li class="dropdown">
+                      <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                      <ul>
+                        <% listItem.items.forEach(({href, title}) => { %>
+                          <li><a href="<%= href %>"><%= title %></a></li>
+                        <% }) %>
+                      </ul>
+                    </li>
+                  <%} else { }%>
+                <% }) %>
+              </ul>
+
+            </li>
+          <% } %>
+        <% }) %>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+<!--
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -31,10 +79,12 @@
           </ul>
         </li>
         <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+        <li><a class="nav-link getstarted scrollto" href="#about">Get Started</a></li>
       </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
+      <i class="bi bi-list mobile-nav-toggle"></i> 
+    </nav>
+-->
+    <!-- .navbar -->
 
   </div>
 </header><!-- End Header -->

@@ -1,30 +1,30 @@
 <section id="about" class="about">
 	<div class="container" data-aos="fade-up">
-
+		<!--
 		<div class="row justify-content-end">
 			<div class="col-lg-11">
 				<div class="row justify-content-end">
 					
-					<% about.counters.forEach((item) => { %>
+					<%# about.counters.forEach((item) => { %>
 						<div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
 							<div class="count-box">
-								<i class="<%= item.logoClass %>"></i>
+								<i class="<%#= item.logoClass %>"></i>
 								<span 
 									data-purecounter-start="0" 
-									data-purecounter-end="<%= item.count %>" 
+									data-purecounter-end="<%#= item.count %>" 
 									data-purecounter-duration="1" 
 									class="purecounter"
 								>		
 								</span>
-								<p><%= item.title %></p>
+								<p><%#= item.title %></p>
 							</div>
 						</div>
-					<% }) %>
+					<%# }) %>
 
 				</div>
 			</div>
 		</div>
-
+		-->
 		<div class="row">
 			<div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
 				<img src="<%- about.image.src -%>" class="img-fluid" alt="<%- about.image.alt -%>">
