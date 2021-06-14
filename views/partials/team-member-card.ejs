@@ -1,0 +1,12 @@
+<div class="member" data-aos="fade-up" data-aos-delay="100">
+	<div class="pic"><img src="<%= item.image.src %>" class="img-fluid" alt="<%= item.image.alt %>"></div>
+	<div class="member-info">
+		<h4><%= item.name %></h4>
+		<span><%= item.title %></span>
+		<div class="social">
+			<% item.social.forEach(({ href, logoClass }) => { %>
+				<a href="<%= href %>"><i class="<%= logoClass %>"></i></a>
+			<% }) %>
+		</div>
+	</div>
+</div>

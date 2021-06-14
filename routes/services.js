@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router(); 
-const all = require('./data');
 
 router.route('/')
 	.get((req, res) => {
 		return res.render('services/index', {
-			...all,
+			...req.all,
 			page: 'services',
 			breadcrumbs: {
 				root: {

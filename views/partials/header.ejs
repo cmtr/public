@@ -1,5 +1,5 @@
 <!-- ======= Header ======= -->
-<header id="header" class="fixed-top ">
+<header id="header" class="fixed-top <%= page === "home" ? "" : "header-inner-pages"%>">
   <div class="container d-flex align-items-center justify-content-between">
 
     <h1 class="logo"><a href="<%= navbar.logo.href %>"><%= navbar.logo.title %></a></h1>
@@ -29,14 +29,14 @@
             </li>  
           <% } else if (item.type === "dropdown") { %>
             <li class="dropdown <%= item.key === page ? "active" : "" %>">
-              <a href="#"><span><%= item.title %></span><i class="bi bi-chevron-down"></i></a>
+              <a href="<%= item.href %>"><span><%= item.title %></span><i class="bi bi-chevron-down"></i></a>
               <ul>
                 <% item.items.forEach((listItem) => { %>
                   <% if (listItem.type === "link") { %>
                     <li><a href="<%= listItem.href %>"><%= listItem.title %></a></li>
                   <% } else if (listItem.type === "dropdown") { %>
                     <li class="dropdown">
-                      <a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+                      <a href="<%= listItem.href %>"><span><%= listItem.title %></span> <i class="bi bi-chevron-right"></i></a>
                       <ul>
                         <% listItem.items.forEach(({href, title}) => { %>
                           <li><a href="<%= href %>"><%= title %></a></li>

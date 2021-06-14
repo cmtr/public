@@ -13,12 +13,6 @@
 			},
 			{
 				"type": "link",
-				"key": "about",
-				"title": "About",
-				"href": "/about"
-			},
-			{
-				"type": "link",
 				"key": "services",
 				"title": "Services",
 				"href": "/services"
@@ -31,40 +25,57 @@
 			},
 			{
 				"type": "link",
-				"key": "team",
-				"title": "Team",
-				"href": "/about/team"
+				"key": "publication",
+				"title": "publications",
+				"href": "/publication"
 			},
 			{
 				"type": "dropdown",
-				"key": "dropdown",
-				"title": "Drop Down",
+				"key": "about",
+				"title": "About",
+				"href": "/about",
 				"items": [
 					{
 						"type": "link",
-						"title": "Drop Down 1",
-						"href": "#"
+						"title": "This Is Us",
+						"href": "about/thisisus"
+					},
+					{
+						"type": "link",
+						"title": "The Way We Work",
+						"href": "about/waywework"
 					},
 					{
 						"type": "dropdown",
-						"title": "Deep Drop Down",
+						"title": "Values, Mission & Vision",
+						"href": "/about#about-boxes",
 						"items": [
 							{
 								"type": "link",
-								"title": "Deep Drop Down 1",
-								"href": "#"
+								"title": "Our Values",
+								"href": "/about/ourvalues"
 							},
 							{
 								"type": "link",
-								"title": "Deep Drop Down 2",
-								"href": "#"
+								"title": "Our Mission",
+								"href": "/about/ourmission"
+							},
+							{
+								"type": "link",
+								"title": "Our Vision",
+								"href": "/about/ourvision"
 							}
 						]
 					},
 					{
 						"type": "link",
-						"title": "Drop Down 2",
-						"href": "#"
+						"title": "Our Story",
+						"href": "/about/ourstory"
+					},
+					{
+						"type": "link",
+						"title": "Who We Are",
+						"href": "/about/whoweare"
 					}
 				]
 			},
@@ -107,9 +118,9 @@
 				"href": "/portfolio"
 			},
 			{
-				"key": "team",
-				"title": "Our Team",
-				"href": "/about/team"
+				"key": "publication",
+				"title": "Publication",
+				"href": "/publication"
 			}
 		]
 	},
@@ -118,7 +129,7 @@
 		"items": [
 			{
 				"key": "pm",
-				"title": "Project Management",
+				"title": "Project, Portfolio & Program Management",
 				"href": "#"
 			},
 			{
@@ -128,7 +139,7 @@
 			},
 			{
 				"key": "marketing",
-				"title": "Market Analysis & Research",
+				"title": "Analysis & Research",
 				"href": "#"
 			},
 			{

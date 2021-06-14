@@ -1,9 +1,10 @@
 const AppBuilder = require('./express/ExpressAppBuilder');
 const Server = require('./express/ExpressServer');
 const indexRoute = require('./routes/index');
-const portfolioRoute = require('./routes/portfolio');
 const aboutRoute = require('./routes/about');
 const servicesRoute = require('./routes/services');
+const publicationRoute = require('./routes/publication');
+const portfolioRoute = require('./routes/portfolio');
 
 const addData = require('./midleware/addData');
 
@@ -17,9 +18,10 @@ const appBuilder = new AppBuilder();
 const app = appBuilder
 	.addMiddleware(addData)
 	.addRoute('/', indexRoute)
-	.addRoute('/portfolio', portfolioRoute)
 	.addRoute('/about', aboutRoute)
 	.addRoute('/services', servicesRoute)
+	.addRoute('/publication', publicationRoute)
+	.addRoute('/portfolio', portfolioRoute)
 	.build();
 
 

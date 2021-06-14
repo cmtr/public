@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router(); 
-const all = require('./data');
 
 router.route('/')
 	.get((req, res) => {
 		return res.render('portfolio/index', {
-			...all,
+			...req.all,
 			page: 'portfolio',
 			breadcrumbs: {
 				root: {
@@ -25,7 +24,7 @@ router.route('/')
 router.route('/:id')
 	.get((req, res) => {
 		return res.render('portfolio/details', {
-			...all,
+			...req.all,
 			page: 'portfolio',
 			breadcrumbs: {
 				root: {
@@ -42,7 +41,7 @@ router.route('/:id')
 				],
 				current: {
 					key: 'portfolio-details',
-					title: 'Details'
+					title: 'Portfolio Details'
 				}	
 			}
 		});

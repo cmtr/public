@@ -8,7 +8,7 @@
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/project_product_mgmt.md"
+			"path": "services/intro_project_product_mgmt.md"
 		},
 		{
 			"logoClass": "ri-body-scan-line",
@@ -18,17 +18,17 @@
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/facilitation.md"
+			"path": "services/intro_facilitation.md"
 		},
 		{
 			"logoClass": "ri-sun-line",
-			"feature": "Business Analysis & Research",
+			"feature": "Analysis & Research",
 			"image": {
 				"src": "/assets/img/features-3.png",
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/business_analysis.md"
+			"path": "services/intro_business_analysis.md"
 		},
 		{
 			"logoClass": "ri-store-line",
@@ -38,7 +38,7 @@
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/ux_design.md"
+			"path": "services/intro_ux_design.md"
 		}
 	],
 	"services": {
@@ -90,7 +90,7 @@
 			{
 				"logoClass": "bi bi-life-preserver",
 				"title": "Peer Review",
-				"paragraph": "Доверяй, но проверяй - Trust, but verify is a Russian probverd to that can be a real life saver.",
+				"paragraph": "\"Доверяй, но проверяй (Trust, but verify)\" - is a Russian probverd to that can be a real life saver.",
 				"href": "#"
 			}
 		]
