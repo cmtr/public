@@ -8,7 +8,8 @@
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/intro_project_product_mgmt.md"
+			"path": "services/intro_project_product_mgmt.md",
+			"href": "/services/projectproductmanagement"
 		},
 		{
 			"logoClass": "ri-body-scan-line",
@@ -18,7 +19,8 @@
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/intro_facilitation.md"
+			"path": "services/intro_facilitation.md",
+			"href": "/services/facilitationcoaching"
 		},
 		{
 			"logoClass": "ri-sun-line",
@@ -28,7 +30,8 @@
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/intro_business_analysis.md"
+			"path": "services/intro_analysis_research.md",
+			"href": "/services/analysisresearch"
 		},
 		{
 			"logoClass": "ri-store-line",
@@ -38,7 +41,8 @@
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/intro_ux_design.md"
+			"path": "services/intro_ux_design.md",
+			"href": "/services/uxdesign"
 		}
 	],
 	"services": {
@@ -141,5 +145,84 @@
 			"title": "Store Owner",
 			"paragraph": "Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper."
 		}
-	]
+	],
+	"serviceContent": {
+		"uxdesign": {
+			"id": "uxdesign",
+			"type": "article",
+			"body": "",
+			"path": "services/ux_design.md",
+			"title": "UX Design",
+			"subTitle": "The User is King",
+			"authors": [],
+			"tags": [],
+			"images": {
+				"head": {
+					"src": "/assets/img/stock/joshua-earle-Dwheufds6kQ-unsplash.jpg",
+					"alt": "Sunset in Solitude",
+					"paragraph": "Strategy is about reflection"
+				}
+			}
+		},
+		"analysisresearch": {
+			"id": "analysisresearch",
+			"type": "article",
+			"body": "",
+			"path": "services/analysis_research.md",
+			"title": "Analysis & Research",
+			"subTitle": "Knowing the problem is key",
+			"authors": [],
+			"tags": [],
+			"images": {
+				"head": {
+					"src": "/assets/img/stock/patrick-perkins-ETRPjvb0KM0-unsplash.jpg",
+					"alt": "Ideas - Patrick Perkins",
+					"hover": "Ideas",
+					"paragraph": "Ideas",
+					"source": "unsplashed",
+					"tags": [ "Workshop", "Analysis", "Post-It", "Ideation" ]	
+				}
+			}
+		},
+		"projectproductmanagement": {
+			"id": "projectproductmanagement",
+			"type": "article",
+			"body": "",
+			"path": "services/project_product_mgmt.md",
+			"title": "Project vs. Product Management",
+			"subTitle": "Project, Program & Portfolio Management vs. Product Management",
+			"authors": [],
+			"tags": [],
+			"images": {
+				"head": {
+					"src": "/assets/img/stock/xps-kLfkVa_4aXM-unsplash.jpg",
+					"alt": "Project Management - Xps",
+					"hover": "Project Management",
+					"paragraph": "Project Management",
+					"source": "unsplashed",
+					"tags": [ ]	
+				}
+			}
+		},		
+		"facilitationcoaching": {
+			"id": "facilitationcoaching",
+			"type": "article",
+			"body": "",
+			"path": "services/facilitation_coaching.md",
+			"title": "Facilitation & Coaching",
+			"subTitle": "Releasing your full potential",
+			"authors": [],
+			"tags": [],
+			"images": {
+				"head": {
+					"src": "/assets/img/stock/sydney-rae-geM5lzDj4Iw-unsplash.jpg",
+					"alt": "You Got This - Sydney Rae",
+					"hover": "You Got This ",
+					"paragraph": "You Got This ",
+					"source": "unsplashed",
+					"tags": [ "Facilitation", "Coaching" ]	
+				}
+			}
+		}
+	}
 }

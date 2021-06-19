@@ -82,34 +82,90 @@
 	},
 
 	{
-		"src": "/assets/img/stock/",
-		"alt": "",
+		"src": "/assets/img/stock/matt-noble-BpTMNN9JSmQ-unsplash.jpg",
+		"alt": "Vision - Matt Noble",
+		"hover": "Vision",
+		"paragraph": "Vision ",
+		"source": "unsplashed",
+		"tags": [ "Vision", "Binoculars"]	
+	},
+	{
+		"src": "/assets/img/stock/sean-stratton-ObpCE_X3j6U-unsplash.jpg",
+		"alt": "Zen - Sean Stratton",
+		"hover": "Zen",
+		"paragraph": "Zen",
+		"source": "unsplashed",
+		"tags": [ "Zen", "Balance", "Rock" ]	
+	},
+	{
+		"src": "/assets/img/stock/jukan-tateisi-bJhT_8nbUA0-unsplash.jpg",
+		"alt": "First Step to Greatness - Jukan Tateisi",
+		"hover": "First Step to Greatness",
+		"paragraph": "First Step to Greatness",
+		"source": "unsplashed",
+		"tags": [ "Coaching", "Steps", "Child" ]	
+	},
+	{
+		"src": "/assets/img/stock/kalen-emsley-7bwQXzbF6KE-unsplash.jpg",
+		"alt": "Exploring new Heights - Kalen Emsley",
+		"hover": "Exploring new Heights",
+		"paragraph": "Exploring new Heights",
+		"source": "unsplashed",
+		"tags": [ "Exploring", "Nature" ]	
+	},
+	{
+		"src": "/assets/img/stock/leon-X8H8vPcelPk-unsplash.jpg",
+		"alt": "Creative Workshop - Leon",
+		"hover": "Creative Workshop",
+		"paragraph": "Creative Workshop",
+		"source": "unsplashed",
+		"tags": [ "Facilitation", "Workshop", "Ideation" ]	
+	},
+	{
+		"src": "/assets/img/stock/leon-vbxyFxlgpjM-unsplash.jpg",
+	"alt": "Creative Workshop - Leon",
+		"hover": "Creative Workshop",
+		"paragraph": "Creative Workshop",
+		"source": "unsplashed",
+		"tags": [ "Facilitation", "Workshop", "Ideation" ]	
+	},
+	{
+		"src": "/assets/img/stock/sydney-rae-geM5lzDj4Iw-unsplash.jpg",
+		"alt": "You Got This - Sydney Rae",
+		"hover": "You Got This ",
+		"paragraph": "You Got This ",
+		"source": "unsplashed",
+		"tags": [ "Facilitation", "Coaching" ]	
+	},
+	{
+		"src": "/assets/img/stock/patrick-perkins-ETRPjvb0KM0-unsplash.jpg",
+		"alt": "Ideas - Patrick Perkins",
+		"hover": "Ideas",
+		"paragraph": "Ideas",
+		"source": "unsplashed",
+		"tags": [ "Workshop", "Analysis", "Post-It", "Ideation" ]	
+	},
+	{
+		"src": "/assets/img/stock/ben-white-mO9vKbG5csg-unsplash.jpg",
+		"alt": "Always Learning - Ben White",
 		"hover": "",
 		"paragraph": "",
 		"source": "unsplashed",
 		"tags": [ ]	
 	},
 	{
-		"src": "/assets/img/stock/",
-		"alt": "",
-		"hover": "",
-		"paragraph": "",
+		"src": "/assets/img/stock/japheth-mast-Ls3yexjyRpk-unsplash.jpg",
+		"alt": "Success - Japheth Mast",
+		"hover": "Success",
+		"paragraph": "Success",
 		"source": "unsplashed",
 		"tags": [ ]	
 	},
 	{
-		"src": "/assets/img/stock/",
-		"alt": "",
-		"hover": "",
-		"paragraph": "",
-		"source": "unsplashed",
-		"tags": [ ]	
-	},
-	{
-		"src": "/assets/img/stock/",
-		"alt": "",
-		"hover": "",
-		"paragraph": "",
+		"src": "/assets/img/stock/xps-kLfkVa_4aXM-unsplash.jpg",
+		"alt": "Project Management - Xps",
+		"hover": "Project Management",
+		"paragraph": "Project Management",
 		"source": "unsplashed",
 		"tags": [ ]	
 	},

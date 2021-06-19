@@ -22,7 +22,7 @@ router.route('/')
 router.route('/team')
 	.get((req, res) => res.render('about/team', {
 		...req.all,
-		page: 'team',
+		page: 'about',
 		breadcrumbs: {
 			root: {
 				key: 'home',
@@ -49,7 +49,7 @@ router.route('/:id')
 		// TODO - redirect back if not found
 		return res.render('publication/details', {
 			...req.all,
-			page: 'publication',
+			page: 'about',
 			publication,
 			authors: req.all.team.team,
 			breadcrumbs: {
@@ -60,9 +60,9 @@ router.route('/:id')
 				},
 				items: [
 					{
-						key: 'publication',
-						title: 'Publications',
-						href: '/publication'
+						key: 'about',
+						title: 'About Us',
+						href: '/about'
 					}
 				],
 				current: {

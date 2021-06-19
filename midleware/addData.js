@@ -70,7 +70,8 @@ const modifications = fp.flow(
 	resolve(overrideAboutBoxes),
 	resolve(overrideServiceFeatures),
 	resolve(overrideArticle('publications')),
-	resolve(overrideArticle('aboutContent'))
+	resolve(overrideArticle('aboutContent')),
+	resolve(overrideArticle('serviceContent'))
 );
 
 // Create Singleton Data object
