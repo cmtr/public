@@ -2,14 +2,14 @@
 	"features": [
 		{
 			"logoClass": "ri-gps-line",
-			"feature": "Project & Product Management",
+			"feature": "Project Management",
 			"image": {
 				"src": "/assets/img/features-1.png",
 				"alt": "feature"
 			},
 			"body": "",
-			"path": "services/intro_project_product_mgmt.md",
-			"href": "/services/projectproductmanagement"
+			"path": "services/intro_project_mgmt.md",
+			"href": "/services/projectmanagement"
 		},
 		{
 			"logoClass": "ri-body-scan-line",
@@ -158,9 +158,12 @@
 			"tags": [],
 			"images": {
 				"head": {
-					"src": "/assets/img/stock/joshua-earle-Dwheufds6kQ-unsplash.jpg",
-					"alt": "Sunset in Solitude",
-					"paragraph": "Strategy is about reflection"
+					"src": "/assets/img/stock/halgatewood-com-tZc3vjPCk-Q-unsplash.jpg",
+					"alt": "Wireframes - Halgatewood",
+					"hover": "Wireframes",
+					"paragraph": "Wireframes",
+					"source": "unsplashed",
+					"tags": [ "UX", "UI", "Wireframe", "Prototype" ]	
 				}
 			}
 		},
@@ -184,13 +187,13 @@
 				}
 			}
 		},
-		"projectproductmanagement": {
-			"id": "projectproductmanagement",
+		"projectmanagement": {
+			"id": "projectmanagement",
 			"type": "article",
 			"body": "",
 			"path": "services/project_product_mgmt.md",
-			"title": "Project vs. Product Management",
-			"subTitle": "Project, Program & Portfolio Management vs. Product Management",
+			"title": "Project, Program & Portfolio Management",
+			"subTitle": "How we can help you with your Project, Program & Portfolio Management.",
 			"authors": [],
 			"tags": [],
 			"images": {
@@ -210,7 +213,7 @@
 			"body": "",
 			"path": "services/facilitation_coaching.md",
 			"title": "Facilitation & Coaching",
-			"subTitle": "Releasing your full potential",
+			"subTitle": "How we can help you releasing your own or your teams full potential",
 			"authors": [],
 			"tags": [],
 			"images": {

@@ -79,29 +79,14 @@
 				"name": "Harald Blikø",
 				"title": "Product, Project & Technical Advisor",
 				"image": {
-					"src": "/assets/img/team/team-1.jpg",
+					"src": "/assets/img/team/harald-bliko-001.jpg",
 					"alt": "team member"
 				}
 				,"social": [
 					{
-						"key": "twitter",
-						"logoClass": "bi bi-twitter",
-						"href": "#"
-					},
-					{
-						"key": "facebook",
-						"logoClass": "bi bi-facebook",
-						"href": "#"
-					},
-					{
-						"key": "instagram",
-						"logoClass": "bi bi-instagram",
-						"href": "#"
-					},
-					{
 						"key": "linkedin",
 						"logoClass": "bi bi-linkedin",
-						"href": "#"
+						"href": "https://www.linkedin.com/in/haraldbliko/"
 					}
 				]
 			},
@@ -109,29 +94,14 @@
 				"name": "Anna P. Blikø",
 				"title": "Design, Communications & Media Advisor",
 				"image": {
-					"src": "/assets/img/team/team-2.jpg",
+					"src": "/assets/img/team/anna-bliko-002.png",
 					"alt": "team member"
 				}
 				,"social": [
 					{
-						"key": "twitter",
-						"logoClass": "bi bi-twitter",
-						"href": "#"
-					},
-					{
-						"key": "facebook",
-						"logoClass": "bi bi-facebook",
-						"href": "#"
-					},
-					{
-						"key": "instagram",
-						"logoClass": "bi bi-instagram",
-						"href": "#"
-					},
-					{
 						"key": "linkedin",
 						"logoClass": "bi bi-linkedin",
-						"href": "#"
+						"href": "https://www.linkedin.com/in/anna-blik%C3%B8-84460016/"
 					}
 				]
 			}

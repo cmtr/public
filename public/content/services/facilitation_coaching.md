@@ -2,7 +2,7 @@ _Facilitation_ is a set of skills used in working with a group to enable and sup
 
 _Coaching_ is a set of skills used in working with a individual to enable and support them to achieve their objectives. It's about supporting a person at every level in becoming who they want to be.
 
-Our advisors are experienced with the tools and techniques of both _coaching_ and _facilitation_ can help you or your team builds awareness and empowers choices that lead to changes necessary to becoming who you want to be.
+Our advisors are experienced with the tools and techniques of both _coaching_ and _facilitation_. They can help you or your team builds awareness and empowers choices that lead to the changes necessary to becoming who you or your team want to be.
 
 ![Facilitated Workshop](/assets/img/stock/leon-vbxyFxlgpjM-unsplash.jpg "Facilitated Workshop")
 **Image:** Ideation Workshop
