@@ -2,12 +2,12 @@
 	<div class="container" data-aos="fade-up">
 
 		<div class="section-title">
-			<h2><%= services.title %></h2>
-			<p><%= services.paragraph %></p>
+			<h2><%= services.services.title %></h2>
+			<p><%= services.services.paragraph %></p>
 		</div>
 
 		<div class="row" data-aos="fade-up" data-aos-delay="200">
-			<% services.services.forEach((item) => { %>
+			<% services.services.services.forEach((item) => { %>
 				<div class="col-md-6 mt-4 mt-md-0">
 					<div class="icon-box">
 						<i class="<%= item.logoClass %>"></i>

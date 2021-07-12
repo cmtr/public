@@ -2,13 +2,13 @@
 	<div class="container" data-aos="fade-up">
 
 		<div class="section-title">
-			<h2><%= team.title %></h2>
-			<p><%= team.paragraph %></p>
+			<h2><%= about.team.title %></h2>
+			<p><%= about.team.paragraph %></p>
 		</div>
 
 		<div class="row">
 
-			<% team.team.forEach((item) => { %>
+			<% about.team.team.forEach((item) => { %>
 				<div class="col-lg-6 col-md-6">
 					<%- include('./team-member-card', { item })%>
 				</div>

@@ -5,16 +5,16 @@
 
 				<div class="col-lg-3 col-md-6">
 					<div class="footer-info">
-						<h3><%= company.legalName %></h3>
+						<h3><%= common.company.legalName %></h3>
 						<p>
-							<%= company.address.street %><br>
-							<%= company.address.zipCode %> <%= company.address.city%>, <%= company.address.country %>
+							<%= common.company.address.street %><br>
+							<%= common.company.address.zipCode %> <%= common.company.address.city%>, <%= common.company.address.country %>
 							<br><br>
-							<strong>Phone:</strong> (+<%= company.phone[0].countryCode%>) <%= company.phone[0].number %><br>
-							<strong>Email:</strong> <%= company.email[0].email %><br>
+							<strong>Phone:</strong> (+<%= common.company.phone[0].countryCode%>) <%= common.company.phone[0].number %><br>
+							<strong>Email:</strong> <%= common.company.email[0].email %><br>
 						</p>
 						<div class="social-links mt-3">
-							<% company.social.forEach((account) => { %>
+							<% common.company.social.forEach((account) => { %>
 								<a href="<%= account.href %>" class="<%= account.class %>"><i class="<%= account.logoClass %>"></i></a>
 							<% }) %>
 						</div>
@@ -22,10 +22,10 @@
 				</div>
 
 				<div class="col-lg-2 col-md-6 footer-links">
-					<h4><%= usefullLinks.title %></h4>
+					<h4><%= navigation[navVersion].usefullLinks.title %></h4>
 					<ul>
 						
-						<% usefullLinks.items.forEach((item) => {%>
+						<% navigation[navVersion].usefullLinks.items.forEach((item) => {%>
 							<li><i class="bx bx-chevron-right"></i> <a href="<%= item.href%>"><%= item.title %></a></li>						
 						<% }) %>
 
@@ -33,19 +33,19 @@
 				</div>
 
 				<div class="col-lg-3 col-md-6 footer-links">
-					<h4><%= ourServices.title %></h4>
+					<h4><%= navigation[navVersion].ourServices.title %></h4>
 					<ul>
-						<% ourServices.items.forEach((item) => { %>
+						<% navigation[navVersion].ourServices.items.forEach((item) => { %>
 							<li><i class="bx bx-chevron-right"></i> <a href="<%= item.href %>"><%= item.title %></a></li>	
 						<% }) %>
 					</ul>
 				</div>
 
 				<div class="col-lg-4 col-md-6 footer-newsletter">
-					<h4><%= newsletter.title %></h4>
-					<p><%= newsletter.paragraph %></p>
+					<h4><%= common.newsletter.title %></h4>
+					<p><%= common.newsletter.paragraph %></p>
 					<form action="" method="post">
-						<input type="email" name="email"><input type="submit" value="<%= newsletter.subscribe %>">
+						<input type="email" name="email"><input type="submit" value="<%= common.newsletter.subscribe %>">
 					</form>
 
 				</div>
@@ -56,10 +56,10 @@
 
 	<div class="container">
 		<div class="copyright">
-			&copy; Copyright <strong><span><%= company.legalName %></span></strong>. All Rights Reserved
+			&copy; Copyright <strong><span><%= common.company.legalName %></span></strong>. All Rights Reserved
 		</div>
 		<div class="credits">
-			Designed by <a href="<%= company.href %>"><%= company.businessName %></a>
+			Designed by <a href="<%= common.company.href %>"><%= common.company.businessName %></a>
 		</div>
 	</div>
 </footer>

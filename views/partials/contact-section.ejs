@@ -15,15 +15,15 @@
 						<div class="info-box">
 							<i class="bx bx-map"></i>
 							<h3>Our Address</h3>
-							<p><%= company.address.street %>, 
-								<%= company.address.zipCode %> <%= company.address.city%>, <%= company.address.country %></p>
+							<p><%= common.company.address.street %>, 
+								<%= common.company.address.zipCode %> <%= common.company.address.city%>, <%= common.company.address.country %></p>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="info-box mt-4">
 							<i class="bx bx-envelope"></i>
 							<h3>Email Us</h3>
-							<% company.email.forEach((email) => { %>
+							<% common.company.email.forEach((email) => { %>
 								<p><strong><%= email.displayName %>:</strong> <%= email.email %></p>
 							<% }) %>
 						</div>
@@ -32,7 +32,7 @@
 						<div class="info-box mt-4">
 							<i class="bx bx-phone-call"></i>
 							<h3>Call Us</h3>
-							<% company.phone.forEach((phone) => { %>
+							<% common.company.phone.forEach((phone) => { %>
 								<p><strong><%= phone.displayName%>:</strong> +<%= phone.countryCode%> <%= phone.number %></p>
 							<% }) %>
 						</div>

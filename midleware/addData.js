@@ -1,79 +1,116 @@
 const fs = require('fs');
-const path = require('path');
 const { promisify } = require('util');
 const _ = require('lodash');
 const fp = require('lodash/fp');
-//const marked = require('marked');
-const showdown  = require('showdown');
-const navigation = require('../public/content/navigation');
-const common = require('../public/content/common');
-const home = require('../public/content/home');
-const about = require('../public/content/about');
-const portfolio = require('../public/content/portfolio');
-const services = require('../public/content/services');
-const publications = require('../public/content/publications');
+const axois = require('axios');
+const marked = require('marked');
 
-const converter = new showdown.Converter();
-const marked = (md) => converter.makeHtml(md);
-
-// Define base data
-const all = {
-	marked,
-	...common,
-	...navigation,
-	...about,
-	...portfolio,
-	...services,
-	...home,
-	...publications
+const rootUrl = 'https://raw.githubusercontent.com/cmtr/cms-public/main/content/index.json';
+const github = {
+	rootUrl: 'https://raw.githubusercontent.com/cmtr/cms-public/main/content/',
+	user: 'cmtr',
+	repository: 'cms-public',
+	branch: 'main'
 };
 
-// Define modifications
-const contentDir = '../public/content';
-const getAbsPath = (relPath) => path
-	.join(__dirname, contentDir, relPath)
-	.toString();
-const readFile = (relPath) => promisify(fs.readFile)(getAbsPath(relPath),'utf-8');
-const updateItem = (param) => (item) => readFile(item.path)
-	.then((val) => _.set(item, param, val));
+const githubRoot = 'https://raw.githubusercontent.com/cmtr/cms-public/main/content/';
+const fileRoot = '/home/harald/Workspace/cms-public/content/';
+const index = 'index.json';
 
-Object.freeze(all);
 
-const resolve = (func) => (promise) => promise.then((res) => func(res));
 
-const overrideAbout = (all) => readFile(all.about.text.path)
-	.then((body) => _.set(all, 'about.text.body', body));
+// Helpers
+const resolve = (func) => (promise) => promise.then(func).catch(console.log);
+const resolveIfNotFirst = (func, i) => i > 0 ? resolve(func) : func;
+const promiseFlow = (...args) => fp.flow(args.map(resolveIfNotFirst));
+const peek = (obj) => {
+	console.log(obj);	
+	return obj;
+};
 
-const overrideAboutBoxes = (all) => Promise
-	.all((all).aboutBoxes
-		.map(updateItem('paragraph')))
-	.then(updated => _.set(all, 'aboutBoxes', updated));
+// Predicates
+const isObject = (obj) => typeof obj === 'object' && obj !== null;
+const isArray = Array.isArray;
+const isType = (type) => (obj) => isObject(obj) && obj.type && obj.type === type;
+const isURL = (str) => {
+	const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+		'((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.?)+[a-z]{2,}|'+ // domain name
+		'((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+		'(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+		'(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+		'(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+	return pattern.test(str);
+};
 
-const overrideServiceFeatures = (all) => Promise
-	.all(all.features
-		.map(updateItem('body')))
-	.then((features) => _.set(all, 'features', features));
 
-const overrideArticle = (key) => (all) => Promise
-	.all(Object.values(_.get(all, key))
-		.map(updateItem('body')))
-	.then((arr) => arr.reduce((acc, curr) => ({ ...acc, [curr.id]: curr }), {}))
-	.then((publications) => _.set(all, key, publications))
-	.catch((err) => {
-		console.log(err);
-		return all;
-	});
+// Get Data
+const getFromUrl = (url) => axois
+	.get(url)
+	.then(fp.get('data'));
 
-// Modification override function list
-const modifications = fp.flow(
-	overrideAbout,
-	resolve(overrideAboutBoxes),
-	resolve(overrideServiceFeatures),
-	resolve(overrideArticle('publications')),
-	resolve(overrideArticle('aboutContent')),
-	resolve(overrideArticle('serviceContent'))
+const getFromFile = (file) => promisify(fs.readFile)(file, 'utf-8');
+
+const getJson = (root) => (path) => isURL(root) 
+	? getFromUrl(root + path)
+	: getFromFile(root + path)
+		.then(JSON.parse);
+
+const getData = (root) => (path) => isURL(root) 
+	? getFromUrl(root + path)
+	: getFromFile(root + path); 
+
+// Tree Builder
+const reduceEntriesToObject = (obj={}) => (arr) => arr
+	.reduce((acc, [key, value]) => _.set(acc, key, value), obj);
+
+const getSubtree = (root) => async (obj) => isType('map')(obj)
+	? getJson(root)(obj.source)
+	: obj;
+
+const traverseThree = (root, func) => async (obj) => Promise
+	.all(Object
+		.entries(obj)
+		.map(([key, val]) => func(val)
+			.then(res => {
+				if (isObject(val)) return traverseThree(root, func)(res)
+					.then((data) => [key, data]);
+				if (isArray(val)) return Promise
+					.all(res.map(traverseThree(root, func)))
+					.then((res) => [key, res]);
+				return [key, res];
+			})))
+	.then(reduceEntriesToObject(obj));
+
+
+const updateExternalField = (root) => async (obj) => isType('external-field')(obj)
+	? getData(root)(obj.source)
+		.then((val) => _.set(obj, obj.target, val))
+	: obj;
+
+const arrayToObject = (path, key) => async (obj) => {
+	const updated = fp.flow(
+		fp.get(path),
+		fp.map((val) => [val[key], val]),
+		reduceEntriesToObject({}),
+	)(obj);	
+	return _.set(obj, path, updated);
+};
+	
+
+const build = (root) => promiseFlow(
+	getJson(root),
+	traverseThree(root, getSubtree(root)),
+	traverseThree(root, updateExternalField(root)),
+	arrayToObject('images.stockImages', 'id'),
+	arrayToObject('about.aboutContent', 'id'),
+	fp.set('marked', marked),
+	fp.set('_', _),
+	fp.set('navVersion', 'mvp'),
+	arrayToObject('publications.publications', 'id'),
+	peek
 );
 
+	
 // Create Singleton Data object
 let data = undefined;
 
@@ -88,5 +125,6 @@ module.exports = function(req, res, next) {
 	};
 
 	if (false) proceed();			
-	else modifications(all).then(proceed);
+	else build(fileRoot)(index)
+		.then(proceed);
 };

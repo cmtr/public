@@ -5,7 +5,7 @@
 			<div class="col-lg-11">
 				<div class="row justify-content-end">
 					
-					<%# about.counters.forEach((item) => { %>
+					<%# about.about.counters.forEach((item) => { %>
 						<div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
 							<div class="count-box">
 								<i class="<%#= item.logoClass %>"></i>
@@ -27,14 +27,14 @@
 		-->
 		<div class="row">
 			<div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
-				<img src="<%- about.image.src -%>" class="img-fluid" alt="<%- about.image.alt -%>">
+				<img src="<%- about.about.image.src -%>" class="img-fluid" alt="<%- about.about.image.alt -%>">
 				<!--
-				<a href="<%- about.image.video -%>" class="glightbox play-btn mb-4"></a>
+				<a href="<%- about.about.image.video -%>" class="glightbox play-btn mb-4"></a>
 				-->
 			</div> 
 
 			<div class="col-lg-6 pt-3 pt-lg-0 content">
-				<%- marked(about.text.body) %>
+				<%- marked(about.about.text.body) %>
 			</div>
 
 		</div>
