@@ -32,19 +32,27 @@
 
 		<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 			<% Object.values(publications.publications).forEach((item) => { %>
-				<div class="col-lg-4 col-md-6 portfolio-item <%= item.tags
-						.reduce((acc, curr) => `${acc} filter-${curr}`, "") %>">
-					<img src="<%= item.images.head.src %>" class="img-fluid" alt="<%= item.images.head.alt %>">
-					<div class="portfolio-info">
-						<h4><%= item.title %></h4>
-						<p><%= item.subTitle %></p>
-						<p>By <strong>Authors Name</strong></p>
-						<a href="<%= item.images.head.src %>" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="<%= item.title %>"><i class="bx bx-plus"></i></a>
-						<a href="/publications/<%= item.id %>" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-					</div>
-				</div>
+			    <div class="col-lg-3 col-md-4 portfolio-item <%= item.tags.reduce((acc, curr) => `${acc} filter-${curr}`, "") %>">
+			     	<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+				        <div class="col-auto d-none d-lg-block">
+				         	<img src="<%= item.images.thumbnail.src %>" class="img-fluid" alt="<%= item.images.thumbnail.alt %>">
+				        </div>
+			        	<div class="col p-4 d-flex flex-column position-static">
+				          	<h5 class=""><%= item.title %></h5>
+				          	
+				          	<p class="card-text">
+				          		<%= item.subTitle.length > 150 ? item.subTitle.substring(0, 150) + "..." : item.subTitle %>
+				          	</p>
+				          	<div class="text-muted"><em>By <strong>
+				          		<%= item.authors.reduce((acc, curr) => `${acc}${acc.length > 0 ? ", " : ""} ${curr.name}`, "") %>
+				          	</strong>, Nov 12 </em></div>
+							<a href="/publication/<%= item.id %>" class="stretched-link">Continue reading</a>
+				        </div>
+			      	</div>
+			    </div>
 			<% }) %>
 		</div>
+
 
 	</div>
 </section>

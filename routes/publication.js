@@ -29,7 +29,7 @@ router.route('/:id')
 			...req.all,
 			page: 'publication',
 			publication,
-			authors: req.all.about.team.team,
+			authors: publication.authors,
 			breadcrumbs: {
 				root: {
 					key: 'home',

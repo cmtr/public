@@ -24,7 +24,8 @@ const resolve = (func) => (promise) => promise.then(func).catch(console.log);
 const resolveIfNotFirst = (func, i) => i > 0 ? resolve(func) : func;
 const promiseFlow = (...args) => fp.flow(args.map(resolveIfNotFirst));
 const peek = (obj) => {
-	console.log(obj);	
+	console.log(obj);
+	console.log(obj.about.image);
 	return obj;
 };
 
@@ -65,17 +66,21 @@ const reduceEntriesToObject = (obj={}) => (arr) => arr
 
 const getSubtree = (root) => async (obj) => isType('map')(obj)
 	? getJson(root)(obj.source)
+		.catch((err) => {
+			console.log(obj);
+			console.log(err);
+		})
 	: obj;
 
-const traverseThree = (root, func) => async (obj) => Promise
+const traverseThree = (func) => async (obj) => Promise
 	.all(Object
 		.entries(obj)
 		.map(([key, val]) => func(val)
 			.then(res => {
-				if (isObject(val)) return traverseThree(root, func)(res)
+				if (isObject(val)) return traverseThree(func)(res)
 					.then((data) => [key, data]);
 				if (isArray(val)) return Promise
-					.all(res.map(traverseThree(root, func)))
+					.all(res.map(traverseThree(func)))
 					.then((res) => [key, res]);
 				return [key, res];
 			})))
@@ -87,6 +92,16 @@ const updateExternalField = (root) => async (obj) => isType('external-field')(ob
 		.then((val) => _.set(obj, obj.target, val))
 	: obj;
 
+
+const updateReference = async (tree) => {
+	const update = async (obj) => isType('ref')(obj)
+		? _.get(tree, obj.source)
+		: obj;
+	return traverseThree(update)(tree);
+};
+
+
+
 const arrayToObject = (path, key) => async (obj) => {
 	const updated = fp.flow(
 		fp.get(path),
@@ -95,17 +110,19 @@ const arrayToObject = (path, key) => async (obj) => {
 	)(obj);	
 	return _.set(obj, path, updated);
 };
-	
+
 
 const build = (root) => promiseFlow(
 	getJson(root),
-	traverseThree(root, getSubtree(root)),
-	traverseThree(root, updateExternalField(root)),
+	traverseThree(getSubtree(root)),
+	traverseThree(updateExternalField(root)),
 	arrayToObject('images.stockImages', 'id'),
 	arrayToObject('about.aboutContent', 'id'),
+	arrayToObject('about.team.team', 'id'),
+	updateReference,
 	fp.set('marked', marked),
 	fp.set('_', _),
-	fp.set('navVersion', 'mvp'),
+	fp.set('navVersion', 'full'),
 	arrayToObject('publications.publications', 'id'),
 	peek
 );

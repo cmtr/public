@@ -45,13 +45,13 @@ router.route('/team')
 
 router.route('/:id')
 	.get((req, res) => {
-		const publication = req.all.aboutContent[req.params.id];
+		const publication = req.all.about.aboutContent[req.params.id];
 		// TODO - redirect back if not found
 		return res.render('publication/details', {
 			...req.all,
 			page: 'about',
 			publication,
-			authors: req.all.team.team,
+			authors: req.all.about.team.team,
 			breadcrumbs: {
 				root: {
 					key: 'home',

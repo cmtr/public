@@ -4,7 +4,7 @@ const indexRoute = require('./routes/index');
 const aboutRoute = require('./routes/about');
 const servicesRoute = require('./routes/services');
 const publicationRoute = require('./routes/publication');
-const portfolioRoute = require('./routes/portfolio');
+// const portfolioRoute = require('./routes/portfolio');
 
 const addData = require('./midleware/addData');
 
@@ -21,7 +21,7 @@ const app = appBuilder
 	.addRoute('/about', aboutRoute)
 	.addRoute('/services', servicesRoute)
 	.addRoute('/publication', publicationRoute)
-	.addRoute('/portfolio', portfolioRoute)
+//	.addRoute('/portfolio', portfolioRoute)
 	.build();
 
 
