@@ -23,13 +23,13 @@ router.route('/')
 
 router.route('/:id')
 	.get((req, res) => {
-		const publication = req.all.serviceContent[req.params.id];
+		const publication = req.all.services.serviceContent[req.params.id];
 		// TODO - redirect back if not found
 		return res.render('publication/details', {
 			...req.all,
 			page: 'services',
 			publication,
-			authors: req.all.team.team,
+			authors: Object.values(req.all.about.team.team),
 			breadcrumbs: {
 				root: {
 					key: 'home',

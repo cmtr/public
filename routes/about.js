@@ -51,7 +51,7 @@ router.route('/:id')
 			...req.all,
 			page: 'about',
 			publication,
-			authors: req.all.about.team.team,
+			authors: Object.values(req.all.about.team.team),
 			breadcrumbs: {
 				root: {
 					key: 'home',
