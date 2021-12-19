@@ -4,7 +4,9 @@
   "description": "express.js public cmtr.io",
   "main": "app.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha --recursive"
+    "test": "node ./node_modules/mocha/bin/mocha --recursive",
+    "start": "node app.js",
+    "start-prod": "STAGE=PROD node app.js >> log-prod.txt"
   },
   "repository": {
     "type": "git",

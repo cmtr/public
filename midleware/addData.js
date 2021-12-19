@@ -5,18 +5,11 @@ const fp = require('lodash/fp');
 const axois = require('axios');
 const marked = require('marked');
 
-const rootUrl = 'https://raw.githubusercontent.com/cmtr/cms-public/main/content/index.json';
-const github = {
-	rootUrl: 'https://raw.githubusercontent.com/cmtr/cms-public/main/content/',
-	user: 'cmtr',
-	repository: 'cms-public',
-	branch: 'main'
-};
-
 const githubRoot = 'https://raw.githubusercontent.com/cmtr/cms-public/main/content/';
 const fileRoot = '/home/harald/Workspace/cms-public/content/';
 const index = 'index.json';
 
+const isProd = process.env.STAGE === 'PROD';
 
 
 // Helpers
@@ -24,8 +17,10 @@ const resolve = (func) => (promise) => promise.then(func).catch(console.log);
 const resolveIfNotFirst = (func, i) => i > 0 ? resolve(func) : func;
 const promiseFlow = (...args) => fp.flow(args.map(resolveIfNotFirst));
 const peek = (obj) => {
-	console.log(obj);
-	console.log(obj.about.image);
+	if (!isProd) {
+		console.log(obj);
+		console.log(obj.about.image);
+	}
 	return obj;
 };
 
@@ -67,7 +62,7 @@ const reduceEntriesToObject = (obj={}) => (arr) => arr
 const getSubtree = (root) => async (obj) => isType('map')(obj)
 	? getJson(root)(obj.source)
 		.catch((err) => {
-			console.log(obj);
+			if (!isProd) console.log(obj);
 			console.log(err);
 		})
 	: obj;
@@ -134,7 +129,7 @@ const build = (root) => promiseFlow(
 // Create Singleton Data object
 let data = undefined;
 
-const isProd = process.env.STAGE == 'PROD';
+
 const root = isProd ? githubRoot : fileRoot;
 const refresh = isProd
 	? (req) => data === undefined || req.query.refresh
