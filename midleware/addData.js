@@ -134,6 +134,11 @@ const build = (root) => promiseFlow(
 // Create Singleton Data object
 let data = undefined;
 
+const isProd = process.env.STAGE == 'PROD';
+const root = isProd ? githubRoot : fileRoot;
+const refresh = isProd
+	? (req) => data === undefined || req.query.refresh
+	: () => true;
 
 // Middleware Function - Add data to request
 module.exports = function(req, res, next) {
@@ -144,7 +149,9 @@ module.exports = function(req, res, next) {
 		next();
 	};
 
-	if (false) proceed();			
-	else build(fileRoot)(index)
-		.then(proceed);
+	if (refresh(req))
+		build(root)(index)
+			.then(proceed);
+	else 
+		proceed();			
 };
