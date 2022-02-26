@@ -6,7 +6,7 @@ const axois = require('axios');
 const marked = require('marked');
 
 const githubRoot = 'https://raw.githubusercontent.com/cmtr/cms-public/main/content/';
-const fileRoot = '/home/harald/Workspace/cms-public/content/';
+const fileRoot = '/home/harald/Workspace/public-site/cms-public/content/';
 const index = 'index.json';
 
 const isProd = process.env.STAGE === 'PROD';
@@ -138,12 +138,14 @@ const refresh = isProd
 // Middleware Function - Add data to request
 module.exports = function(req, res, next) {
 	const proceed = (result) => {
-		if (result !== undefined)
+		if (result !== undefined) {
 			data = result;
+			console.log('CMS Data Refresh');
+		}
 		req.all = data;
 		next();
 	};
-
+	
 	if (refresh(req))
 		build(root)(index)
 			.then(proceed);
