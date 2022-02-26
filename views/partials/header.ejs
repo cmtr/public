@@ -1,0 +1,58 @@
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top <%= page === "home" ? "" : "header-inner-pages"%>">
+  <div class="container d-flex align-items-center justify-content-between">
+
+    <h1 class="logo"><a href="<%= navigation[navVersion].navbar.logo.href %>"><%= navigation[navVersion].navbar.logo.title %></a></h1>
+    <!-- Uncomment below if you prefer to use an image logo -->
+    <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+    <%
+      const getNavlinkClass = (item) => {
+        const customClass = item.class || "";
+        let str = "nav-link " + customClass;
+        if (item.key === page) {
+          str += ' active';
+        }
+        if (item.type === 'scrollto') {
+          str += ' scrollto';
+        }
+        return str;
+      }
+    %>
+
+    <nav id="navbar" class="navbar">
+      <ul>
+        <% navigation[navVersion].navbar.navbar.forEach((item) => { %>
+          <% if (item.type == 'link' || item.type == 'scrollto') { %>
+            <li>
+              <a class="<%= getNavlinkClass(item) %>" href="<%= item.href %>"><%= item.title %></a>
+            </li>  
+          <% } else if (item.type === "dropdown") { %>
+            <li class="dropdown <%= item.key === page ? "active" : "" %>">
+              <a href="<%= item.href %>"><span><%= item.title %></span><i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <% item.items.forEach((listItem) => { %>
+                  <% if (listItem.type === "link") { %>
+                    <li><a href="<%= listItem.href %>"><%= listItem.title %></a></li>
+                  <% } else if (listItem.type === "dropdown") { %>
+                    <li class="dropdown">
+                      <a href="<%= listItem.href %>"><span><%= listItem.title %></span> <i class="bi bi-chevron-right"></i></a>
+                      <ul>
+                        <% listItem.items.forEach(({href, title}) => { %>
+                          <li><a href="<%= href %>"><%= title %></a></li>
+                        <% }) %>
+                      </ul>
+                    </li>
+                  <%} else { }%>
+                <% }) %>
+              </ul>
+
+            </li>
+          <% } %>
+        <% }) %>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+  </div>
+</header>
+<!-- End Header -->

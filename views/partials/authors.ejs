@@ -1,0 +1,8 @@
+<div class="team">
+	<h2>Authors</h2>
+	<% authors.forEach((item) => { %>
+		<div class="">
+			<%- include('../partials/team-member-card', { item })%>
+		</div>
+	<% }) %>					
+</div>

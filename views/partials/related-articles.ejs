@@ -1,0 +1,7 @@
+<% if (publication.relatedArticles) { %>
+	<ul>
+		<% publication.relatedArticles.forEach(link => { %>
+			<li><a href="<%= link.href %>"><%= link.title %></a></li>
+		<% }) %>
+	</ul>
+<% } %>

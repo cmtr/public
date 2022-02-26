@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+<body>
+
+	<!-- ======= Header ======= -->
+	<%- include('../partials/header') %>
+	<!-- End Header -->
+
+	<main id="main">
+
+		<!-- ======= Breadcrumbs ======= -->
+		<%- include('../partials/breadcrumbs') %>
+		<!-- End Breadcrumbs -->
+
+		<!-- ======= Publication Details Section ======= -->
+		<section id="portfolio-details" class="portfolio-details">
+			<div class="container">
+
+				<!-- ======= Publication Header ======= -->
+				<%- include('../partials/publication-head') %>
+				<!-- End Publication Header -->
+
+				<div class="row gy-4">
+
+					<div class="col-lg-8 rendered-content">
+						<%- marked(publication.body) %>
+					</div>
+
+					<div class = "col-lg-4">
+
+						<!-- ======= Authors  ======= -->
+						<%- include('../partials/authors') %>
+						<!-- End Authors -->
+
+						<div>
+							<h2>Related Articles</h2>
+							<%- include("../partials/related-articles") %>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			
+		</section>
+		<!-- End Publication Details Section -->
+	</main>
+	<!-- End #main -->
+
+	<!-- ======= Contact Section ======= -->
+	<%- include('../partials/contact-section') %>
+	<!-- End Contact Section -->
+
+	<!-- ======= Footer ======= -->
+	<%- include('../partials/footer') %>
+	<!-- End Footer -->
+
+	<%- include('../partials/foot') %>
+
+</body>
+
+</html>

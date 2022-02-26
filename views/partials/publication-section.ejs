@@ -1,0 +1,58 @@
+<section id="portfolio" class="portfolio">
+	<div class="container" data-aos="fade-up">
+
+		<div class="section-title">
+			<h2>Publications</h2>
+			<p>Check our Publications</p>
+		</div>
+
+		<div class="row" data-aos="fade-up" data-aos-delay="100">
+			<div class="col-lg-12 d-flex justify-content-center">
+				<ul id="portfolio-flters">
+					<li data-filter="*" class="filter-active">All</li>
+					<% 
+						const tags = Object
+							.values(publications.publications)
+							.map((item) => item.tags)
+							.reduce((acc, curr) => {
+								curr.forEach((tag) => {
+									if (!acc.includes(tag))
+										acc.push(tag);
+								});
+								return acc;
+							}, []);
+
+							tags.forEach((tag) => { 
+					%>
+						<li data-filter=".filter-<%= tag %>"><%= tag %></li>
+					<% }) %>	
+				</ul>
+			</div>
+		</div>
+
+		<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+			<% Object.values(publications.publications).forEach((item) => { %>
+			    <div class="col-lg-3 col-md-4 portfolio-item <%= item.tags.reduce((acc, curr) => `${acc} filter-${curr}`, "") %>">
+			     	<div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+				        <div class="col-auto d-none d-lg-block">
+				         	<img src="<%= item.images.thumbnail.src %>" class="img-fluid" alt="<%= item.images.thumbnail.alt %>">
+				        </div>
+			        	<div class="col p-4 d-flex flex-column position-static">
+				          	<h5 class=""><%= item.title %></h5>
+				          	
+				          	<p class="card-text">
+				          		<%= item.subTitle.length > 150 ? item.subTitle.substring(0, 150) + "..." : item.subTitle %>
+				          	</p>
+				          	<div class="text-muted"><em>By <strong>
+				          		<%= item.authors.reduce((acc, curr) => `${acc}${acc.length > 0 ? ", " : ""} ${curr.name}`, "") %>
+				          	</strong>, Nov 12 </em></div>
+							<a href="/publication/<%= item.id %>" class="stretched-link">Continue reading</a>
+				        </div>
+			      	</div>
+			    </div>
+			<% }) %>
+		</div>
+
+
+	</div>
+</section>

@@ -1,0 +1,63 @@
+<footer id="footer">
+	<div class="footer-top">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-3 col-md-6">
+					<div class="footer-info">
+						<h3><%= common.company.legalName %></h3>
+						<p>
+							<%= common.company.address.street %><br>
+							<%= common.company.address.zipCode %> <%= common.company.address.city%>, <%= common.company.address.country %>
+							<br><br>
+							<strong>Phone:</strong> (+<%= common.company.phone[0].countryCode%>) <%= common.company.phone[0].number %><br>
+							<strong>Email:</strong> <%= common.company.email[0].email %><br>
+						</p>
+						<div class="social-links mt-3">
+							<% common.company.social.forEach((account) => { %>
+								<a href="<%= account.href %>" class="<%= account.class %>"><i class="<%= account.logoClass %>"></i></a>
+							<% }) %>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-2 col-md-6 footer-links">
+					<h4><%= navigation[navVersion].usefullLinks.title %></h4>
+					<ul>
+						
+						<% navigation[navVersion].usefullLinks.items.forEach((item) => {%>
+							<li><i class="bx bx-chevron-right"></i> <a href="<%= item.href%>"><%= item.title %></a></li>						
+						<% }) %>
+
+					</ul>
+				</div>
+
+				<div class="col-lg-3 col-md-6 footer-links">
+					<h4><%= navigation[navVersion].ourServices.title %></h4>
+					<ul>
+						<% navigation[navVersion].ourServices.items.forEach((item) => { %>
+							<li><i class="bx bx-chevron-right"></i> <a href="<%= item.href %>"><%= item.title %></a></li>	
+						<% }) %>
+					</ul>
+				</div>
+
+				<div class="col-lg-4 col-md-6 footer-newsletter">
+					<h4><%= common.newsletter.title %></h4>
+					<p><%= common.newsletter.paragraph %></p>
+					<%- include('./newsletter-form') %>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="copyright">
+			&copy; Copyright <strong><span><%= common.company.legalName %></span></strong>. All Rights Reserved
+		</div>
+		<div class="credits">
+			Designed by <a href="<%= common.company.href %>"><%= common.company.businessName %></a>
+		</div>
+	</div>
+</footer>
+

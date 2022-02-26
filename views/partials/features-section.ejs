@@ -1,0 +1,34 @@
+<section id="features" class="features">
+	<div class="container" data-aos="fade-up">
+
+		<ul class="nav nav-tabs row d-flex">
+			<% services.features.forEach((item, index) => { %>
+				<li class="nav-item col-3">
+					<a class="nav-link <%= index < 1 ? "active show" : "" %>" data-bs-toggle="tab" href="#tab-<%= index+1 %>">
+						<i class="<%= item.logoClass%>"></i>
+						<h4 class="d-none d-lg-block"><%= item.feature %></h4>
+					</a>
+				</li>
+			<% }) %>
+
+		</ul>
+
+		<div class="tab-content">
+			<% services.features.forEach((item, index) => { %>
+				<div class="tab-pane <%= index < 1 ? "active show" : "" %>" id="tab-<%= index+1 %>">
+					<div class="row">
+						<div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+							<%- marked(item.body) %>
+						</div>
+						<div class="col-lg-6 order-1 order-lg-2 text-center">
+							<a href="<%= item.href %>" ><img src="<%= item.image.src %>" alt="<%= item.image.alt %>" class="img-fluid"></a>
+						</div>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+
+	</div>
+
+	
+</section>

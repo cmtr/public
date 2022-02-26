@@ -1,0 +1,23 @@
+<section id="about-boxes" class="about-boxes">
+	<div class="container" data-aos="fade-up">
+
+		<div class="row">
+			<% about.aboutBoxes.forEach((item) => { %>
+
+				<div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+					<div class="card">
+						<img src="<%= item.image.src %>" class="card-img-top" alt="<%= item.image.alt %>">
+						<div class="card-icon">
+							<i class="<%= item.logoClass%>"></i>
+						</div>
+						<div class="card-body">
+							<h5 class="card-title"><a href="<%= item.href%>"><%= item.title%></a></h5>
+							<p class="card-text"><%- marked(item.paragraph)%></p>
+						</div>
+					</div>
+				</div>
+			<% }) %>
+
+		</div>
+	</div>
+</section>

@@ -1,0 +1,37 @@
+<section id="services" class="services section-bg">
+	<div class="container" data-aos="fade-up">
+
+		<div class="section-title">
+			<h2><%= services.services.title %></h2>
+			<p><%= services.services.paragraph %></p>
+		</div>
+<!--
+		<div class="row" data-aos="fade-up" data-aos-delay="200">
+			<% services.services.services.forEach((item) => { %>
+				<div class="col-md-6 mt-4 mt-md-0">
+					<div class="icon-box">
+						<i class="<%= item.logoClass %>"></i>
+						<h4><a href="<%= item.href %>"><%= item.title %></a></h4>
+						<p><%= item.paragraph %></p>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+-->
+	<div class="container px-4 py-5" id="icon-grid">
+		<div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 py-5">		
+		<% services.services.services.forEach((item) => { %>
+				<div class="col d-flex align-items-start">
+					<i class="bi text-muted flex-shrink-0 me-3 <%= item.logoClass %>"></i>
+					<div>
+						<h4 class="fw-bold mb-0"><%= item.title %></h4>
+						<p><%= item.paragraph %></p>
+					</div>
+				</div>
+		
+		<% }) %>
+		</div>
+	</div>
+
+</section>
