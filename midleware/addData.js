@@ -118,7 +118,7 @@ const build = (root) => promiseFlow(
 	arrayToObject('services.serviceContent', 'id'),
 //	arrayToObject('services.features', 'id'),
 	updateReference,
-	fp.set('marked', marked),
+	fp.set('marked', marked.parse),
 	fp.set('_', _),
 	fp.set('navVersion', 'full'),
 	arrayToObject('publications.publications', 'id'),
