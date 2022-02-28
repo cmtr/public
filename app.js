@@ -9,9 +9,9 @@ const publicationRoute = require('./routes/publication');
 const addData = require('./midleware/addData');
 
 // Get Environment Variables
-const ENV = 'Dev';
-const NAME = 'cmtr-public';
-const PORT = 3000;
+const STAGE = process.env.STAGE || 'DEV';
+const NAME = process.env.NAME || 'cmtr';
+const PORT = process.env.PORT || 3000;
 
 
 const appBuilder = new AppBuilder();
@@ -23,8 +23,6 @@ const app = appBuilder
 	.addRoute('/publication', publicationRoute)
 //	.addRoute('/portfolio', portfolioRoute)
 	.build();
-
-
 
 
 const server = new Server(app, NAME, PORT);
