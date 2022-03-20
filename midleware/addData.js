@@ -135,6 +135,7 @@ const refresh = isProd
 	? (req) => data === undefined || req.query.refresh
 	: () => true;
 
+
 // Middleware Function - Add data to request
 module.exports = function(req, res, next) {
 	const proceed = (result) => {
