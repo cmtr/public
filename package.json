@@ -6,9 +6,10 @@
   "scripts": {
     "test": "node ./node_modules/mocha/bin/mocha --recursive",
     "start": "node app.js",
-    "start-prod": "STAGE=PROD node app.js >> log-prod.txt",
-    "build": "sudo docker build -tag cmtr-public .",
-    "start-docker": "sudo docker run -d -p 8080:3000 cmtr-public"
+    "start-prod": "STAGE=PROD node app.js >> log-prod.log",
+    "build": "sudo docker build --tag cmtr-public .",
+    "start-docker": "sudo docker run -d -p 8080:3000 cmtr-public",
+    "stop-docker": "sudo docker stop $(sudo docker ps -q --filter ancestor=cmtr-public)"
   },
   "repository": {
     "type": "git",
@@ -41,3 +42,4 @@
     "sinon": "^9.2.4"
   }
 }
+ 
